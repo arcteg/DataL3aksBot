@@ -18,13 +18,13 @@ def get_start_messages(message):
 @bot.message_handler(commands=['stats'])
 def get_stats_messages(message):
     bot.send_message(message.chat.id, f"*Статистика бота:*\n📊 Подключено баз: `{len(parser.dbs)}`\n📄 Количество "
-                                      f"строк: ``\n"
-                                      "🗓 Последнее обновление: `ДД.ММ.ГГ`", parse_mode='Markdown')
+                                      f"строк: `54 116 449`\n"
+                                      "🗓 Последнее обновление: `30.09.2022`", parse_mode='Markdown')
 
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
-    bot.send_message(message.chat.id, "👀 Сканирую ДБ...")
+    bot.send_message(message.chat.id, "👀 Сканирую базы данных...")
     bot.send_chat_action(message.chat.id, 'typing')
     if re.fullmatch(regex_email, message.text):
         bot.send_message(message.chat.id, text=parser.check_email(message.text), parse_mode='Markdown')
